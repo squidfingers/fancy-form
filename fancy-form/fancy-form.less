@@ -1,7 +1,8 @@
 // Variables
 
+@ff-icon-color: #8f8f8f;
+@ff-icon-color-checked: #39a2a6;
 @ff-font-path: "fonts";
-@ff-icon-color: rgb(20,120,220);
 
 // Font
 
@@ -63,8 +64,12 @@
         }
     }
     input[type="checkbox"]:checked + label {
-        i:before {
-            .ff-icon-checkbox-checked();
+        i {
+            color: @ff-icon-color-checked;
+            
+            &:before {
+                .ff-icon-checkbox-checked();
+            }
         }
     }
     input[type="checkbox"] {
@@ -89,8 +94,12 @@
         }
     }
     input[type="radio"]:checked + label {
-        i:before {
-            .ff-icon-radio-checked();
+        i {
+            color: @ff-icon-color-checked;
+            
+            &:before {
+                .ff-icon-radio-checked();
+            }
         }
     }
     input[type="radio"] {
