@@ -7,35 +7,19 @@
 // Font
 
 @font-face {
-	font-family: 'fancy-form';
-	src:url('@{ff-font-path}/fancy-form.eot');
-	src:url('@{ff-font-path}/fancy-form.eot?#iefix') format('embedded-opentype'),
-		url('@{ff-font-path}/fancy-form.woff') format('woff'),
-		url('@{ff-font-path}/fancy-form.ttf') format('truetype'),
-		url('@{ff-font-path}/fancy-form.svg#fancy-form') format('svg');
-	font-weight: normal;
-	font-style: normal;
+    font-family: 'fancy-form';
+    src:url('@{ff-font-path}/fancy-form.eot');
+    src:url('@{ff-font-path}/fancy-form.eot?#iefix') format('embedded-opentype'),
+        url('@{ff-font-path}/fancy-form.woff') format('woff'),
+        url('@{ff-font-path}/fancy-form.ttf') format('truetype'),
+        url('@{ff-font-path}/fancy-form.svg#fancy-form') format('svg');
+    font-weight: normal;
+    font-style: normal;
 }
 
 // Icons
 
-.ff-icon-checkbox {
-	content: "\e600";
-}
-.ff-icon-checkbox-checked {
-	content: "\e601";
-}
-.ff-icon-radio {
-	content: "\e602";
-}
-.ff-icon-radio-checked {
-	content: "\e603";
-}
-
-// Checkbox
-
-.ff-checkbox label i, 
-.ff-radio label i {
+.ff-font {
     display: inline-block;
     font-family: 'fancy-form';
     speak: none;
@@ -43,11 +27,25 @@
     font-weight: normal;
     font-variant: normal;
     text-transform: none;
-    line-height: 1;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-    color: @ff-icon-color;
+    line-height: 1em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
+.ff-icon-checkbox {
+    content: "\e600";
+}
+.ff-icon-checkbox-checked {
+    content: "\e601";
+}
+.ff-icon-radio {
+    content: "\e602";
+}
+.ff-icon-radio-checked {
+    content: "\e603";
+}
+
+// Checkbox
+
 .ff-checkbox {
     label {
         cursor: pointer;
@@ -56,22 +54,24 @@
             padding-left: 0;
         }
         i {
+            &:extend(.ff-font);
             margin-right: 5px;
+            color: @ff-icon-color;
             
             &:before {
-                .ff-icon-checkbox();
+                &:extend(.ff-icon-checkbox);
             }
         }
     }
-    input[type="checkbox"]:checked + label {
-        i {
-            color: @ff-icon-color-checked;
-            
-            &:before {
-                .ff-icon-checkbox-checked();
-            }
+    label input[type="checkbox"]:checked + i,
+    input[type="checkbox"]:checked + label i {
+        color: @ff-icon-color-checked;
+        
+        &:before {
+            &:extend(.ff-icon-checkbox-checked);
         }
     }
+    
     input[type="checkbox"] {
         display: none;
     }
@@ -87,19 +87,21 @@
             padding-left: 0;
         }
         i {
+            &:extend(.ff-font);
             margin-right: 5px;
+            color: @ff-icon-color;
+            
             &:before {
-                .ff-icon-radio();
+                &:extend(.ff-icon-radio);
             }
         }
     }
-    input[type="radio"]:checked + label {
-        i {
-            color: @ff-icon-color-checked;
-            
-            &:before {
-                .ff-icon-radio-checked();
-            }
+    label input[type="radio"]:checked + i,
+    input[type="radio"]:checked + label i {
+        color: @ff-icon-color-checked;
+        
+        &:before {
+            &:extend(.ff-icon-radio-checked);
         }
     }
     input[type="radio"] {

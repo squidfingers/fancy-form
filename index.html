@@ -7,34 +7,44 @@
         <link rel="stylesheet" type="text/css" href="fancy-form/fancy-form.css">
     </head>
     <body>
-        
-        <div class="container">
-            
-            <fieldset class="form-group ff-checkbox">
+        <form>
+            <ul>
                 
-                <input type="checkbox" id="checkbox-1" name="checkbox-1" value="1">
-                <label class="checkbox-inline" for="checkbox-1"><i></i>Option 1</label>
+                <!-- Format 1 -->
+                <li class="form-group ff-checkbox">
+                    <label class="checkbox-inline" for="checkbox-1">
+                        <input type="checkbox" id="checkbox-1" name="checkbox-1" value="1">
+                        <i></i>Option 1
+                    </label>
+                </li>
                 
-            </fieldset>
-            
-            <fieldset class="form-group ff-checkbox">
+                <!-- Format 2 -->
+                <li class="form-group ff-checkbox">
+                    <input type="checkbox" id="checkbox-2" name="checkbox-2" value="2" checked="checked">
+                    <label class="checkbox-inline" for="checkbox-2"><i></i>Option 2</label>
+                </li>
                 
-                <input type="checkbox" id="checkbox-2" name="checkbox-2" value="2" checked="checked">
-                <label class="checkbox-inline" for="checkbox-2"><i></i>Option 2</label>
+                <!-- Format 1 -->
+                <li class="form-group ff-radio">
+                    <input type="radio" id="radio-1-1" name="radio-group-1" value="1">
+                    <label class="radio-inline" for="radio-1-1"><i></i>Yes</label>
+                    <input type="radio" id="radio-1-2" name="radio-group-1" value="0" checked="checked">
+                    <label class="radio-inline" for="radio-1-2"><i></i>No</label>
+                </li>
                 
-            </fieldset>
-            
-            <fieldset class="form-group ff-radio">
+                <!-- Format 2 -->
+                <li class="form-group ff-radio">
+                    <label class="radio-inline" for="radio-2-1">
+                        <input type="radio" id="radio-2-1" name="radio-group-2" value="1">
+                        <i></i>Yes
+                    </label>
+                    <label class="radio-inline" for="radio-2-2">
+                        <input type="radio" id="radio-2-2" name="radio-group-2" value="0" checked="checked">
+                        <i></i>No
+                    </label>
+                </li>
                 
-                <input type="radio" id="radio-1" name="radio-group" value="1">
-                <label class="radio-inline" for="radio-1"><i></i>Yes</label>
-                
-                <input type="radio" id="radio-2" name="radio-group" value="0" checked="checked">
-                <label class="radio-inline" for="radio-2"><i></i>No</label>
-                
-            </fieldset>
-
-        </div>
-                
+            </ul>
+        </form>
     </body>
 </html>
