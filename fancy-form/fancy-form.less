@@ -7,15 +7,14 @@
 @ff-icon-color-checked: #39a2a6;
 @ff-icon-color-error: #c81e1e;
 
-@ff-select-color: #8f8f8f;
 @ff-select-background-color: #fff;
 @ff-select-border-color: #8f8f8f;
 @ff-select-border-width: 2px;
 @ff-select-border-radius: 4px;
-@ff-select-color-error: #c81e1e;
+@ff-select-arrow-color: #39a2a6;
 @ff-select-background-color-error: #fff;
 @ff-select-border-color-error: #c81e1e;
-
+@ff-select-arrow-color-error: #c81e1e;
 
 @ff-font-path: "fonts";
 
@@ -101,7 +100,7 @@
     }
 }
 
-// Radio Button
+// Radio
 
 .ff-radio {
     label {
@@ -158,7 +157,7 @@
         position: absolute;
         right: 10px;
         top: 30%;
-        color: @ff-select-color;
+        color: @ff-select-arrow-color;
         pointer-events: none;
     }
     @media only screen and (min-width:768px) {
@@ -185,7 +184,7 @@
         border-color: @ff-select-border-color-error;
         background-color: @ff-select-background-color-error;
         &:after {
-            color: @ff-select-color-error;
+            color: @ff-select-arrow-color-error;
         }
         select {
             color: @ff-label-color-error;
