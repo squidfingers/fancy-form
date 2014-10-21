@@ -10,9 +10,14 @@
 body {
     margin: 0;
     padding: 50px;
+}
+body, select {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 16px;
     color: #333;
+}
+form {
+    width: 50%;
 }
 form li.form-group {
     margin-bottom: 1em;

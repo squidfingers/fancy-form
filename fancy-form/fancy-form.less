@@ -1,7 +1,22 @@
 // Variables
 
+@ff-label-color: #333;
+@ff-label-color-error: #c81e1e;
+
 @ff-icon-color: #8f8f8f;
 @ff-icon-color-checked: #39a2a6;
+@ff-icon-color-error: #c81e1e;
+
+@ff-select-color: #8f8f8f;
+@ff-select-background-color: #fff;
+@ff-select-border-color: #8f8f8f;
+@ff-select-border-width: 2px;
+@ff-select-border-radius: 4px;
+@ff-select-color-error: #c81e1e;
+@ff-select-background-color-error: #fff;
+@ff-select-border-color-error: #c81e1e;
+
+
 @ff-font-path: "fonts";
 
 // Font
@@ -43,13 +58,16 @@
 .ff-icon-radio-checked {
     content: "\e603";
 }
+.ff-icon-arrow-down {
+    content: "\e604";
+}
 
 // Checkbox
 
 .ff-checkbox {
     label {
         cursor: pointer;
-        
+        color: @ff-label-color;
         &.checkbox-inline {
             padding-left: 0;
         }
@@ -66,14 +84,20 @@
     label input[type="checkbox"]:checked + i,
     input[type="checkbox"]:checked + label i {
         color: @ff-icon-color-checked;
-        
         &:before {
             &:extend(.ff-icon-checkbox-checked);
         }
     }
-    
     input[type="checkbox"] {
         display: none;
+    }
+    &.error {
+        label {
+            color: @ff-label-color-error;
+            i {
+                color: @ff-icon-color-error;
+            }
+        }
     }
 }
 
@@ -82,7 +106,7 @@
 .ff-radio {
     label {
         cursor: pointer;
-        
+        color: @ff-label-color;
         &.radio-inline {
             padding-left: 0;
         }
@@ -90,7 +114,6 @@
             &:extend(.ff-font);
             margin-right: 5px;
             color: @ff-icon-color;
-            
             &:before {
                 &:extend(.ff-icon-radio);
             }
@@ -99,12 +122,73 @@
     label input[type="radio"]:checked + i,
     input[type="radio"]:checked + label i {
         color: @ff-icon-color-checked;
-        
         &:before {
             &:extend(.ff-icon-radio-checked);
         }
     }
     input[type="radio"] {
         display: none;
+    }
+    &.error {
+        label {
+            color: @ff-label-color-error;
+            i {
+                color: @ff-icon-color-error;
+            }
+        }
+    }
+}
+
+// Select
+
+.ff-select {
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    height: 40px;
+    width: 100%;
+    min-width: 50px;
+    margin-bottom: 15px;
+    border: @ff-select-border-width solid @ff-select-border-color;
+    border-radius: @ff-select-border-radius;
+    background-color: @ff-select-background-color;
+    &:after {
+        &:extend(.ff-font);
+        &:extend(.ff-icon-arrow-down);
+        position: absolute;
+        right: 10px;
+        top: 30%;
+        color: @ff-select-color;
+        pointer-events: none;
+    }
+    @media only screen and (min-width:768px) {
+        width: auto;
+    }
+    select {
+        cursor: pointer;
+        width: 110%;
+        padding: 8px;
+        border: 0;
+        color: @ff-label-color;
+        background-color: transparent;
+        background-image: none;
+        -webkit-box-shadow: none;
+                box-shadow: none;
+        -webkit-appearance: none;
+           -moz-appearance: none;
+                appearance: none;
+        &:focus {
+            outline: none;
+        }
+    }
+    &.error {
+        border-color: @ff-select-border-color-error;
+        background-color: @ff-select-background-color-error;
+        &:after {
+            color: @ff-select-color-error;
+        }
+        select {
+            color: @ff-label-color-error;
+        }
     }
 }
