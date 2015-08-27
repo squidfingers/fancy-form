@@ -16,6 +16,12 @@
 @ff-select-border-color-error: #c81e1e;
 @ff-select-arrow-color-error: #c81e1e;
 
+@ff-toggle-background-color: #8f8f8f;
+@ff-toggle-background-color-active: #39a2a6;
+@ff-toggle-background-color-disabled: #ddd;
+@ff-toggle-switch-color: #fff;
+@ff-toggle-text-color: #fff;
+
 @ff-font-path: "fonts";
 
 // Font
@@ -74,7 +80,7 @@
             &:extend(.ff-font);
             margin-right: 5px;
             color: @ff-icon-color;
-            
+
             &:before {
                 &:extend(.ff-icon-checkbox);
             }
@@ -188,6 +194,73 @@
         }
         select {
             color: @ff-label-color-error;
+        }
+    }
+}
+
+// Toggle
+
+.ff-toggle {
+    input[type=checkbox] {
+        position: absolute;
+        margin-left: -9999px;
+        visibility: hidden;
+
+        & + label {
+            display: block;
+            position: relative;
+            cursor: pointer;
+            outline: none;
+            user-select: none;
+            width: 80px;
+            height: 30px;
+            background-color: @ff-toggle-background-color;
+            border-radius: 15px;
+            transition: background 0.3s;
+            /*hide text*/
+            text-indent: 100%;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        & + label:before {
+            text-indent: 0;
+            display: block;
+            position: absolute;
+            top: 8px;
+            right: 16px;
+            color: @ff-toggle-text-color;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 12px;
+            font-weight: bold;
+            content: "OFF";
+        }
+        & + label:after {
+            text-indent: 0;
+            display: block;
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            bottom: 2px;
+            width: 26px;
+            background-color: @ff-toggle-switch-color;
+            border-radius: 13px;
+            content: "";
+            transition: margin 0.03s;
+        }
+        &:checked + label {
+            background-color: @ff-toggle-background-color-active;
+        }
+        &:checked + label:before {
+            left: 18px;
+            right: auto;
+            content: "ON";
+        }
+        &:checked + label:after {
+            margin-left: 50px;
+        }
+        &:disabled + label {
+            cursor: not-allowed;
+            background-color: @ff-toggle-background-color-disabled;
         }
     }
 }
