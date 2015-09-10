@@ -221,42 +221,44 @@
             text-indent: 100%;
             white-space: nowrap;
             overflow: hidden;
-        }
-        & + label:before {
-            text-indent: 0;
-            display: block;
-            position: absolute;
-            top: 8px;
-            right: 16px;
-            color: @ff-toggle-text-color;
-            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-            font-size: 12px;
-            font-weight: bold;
-            content: "OFF";
-        }
-        & + label:after {
-            text-indent: 0;
-            display: block;
-            position: absolute;
-            top: 2px;
-            left: 2px;
-            bottom: 2px;
-            width: 26px;
-            background-color: @ff-toggle-switch-color;
-            border-radius: 13px;
-            content: "";
-            transition: margin 0.03s;
+
+            &:before {
+                text-indent: 0;
+                display: block;
+                position: absolute;
+                top: 8px;
+                right: 16px;
+                color: @ff-toggle-text-color;
+                font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+                font-size: 12px;
+                font-weight: bold;
+                content: "OFF";
+            }
+            &:after {
+                text-indent: 0;
+                display: block;
+                position: absolute;
+                top: 2px;
+                left: 2px;
+                bottom: 2px;
+                width: 26px;
+                background-color: @ff-toggle-switch-color;
+                border-radius: 13px;
+                content: "";
+                transition: margin 0.03s;
+            }
         }
         &:checked + label {
             background-color: @ff-toggle-background-color-active;
-        }
-        &:checked + label:before {
-            left: 18px;
-            right: auto;
-            content: "ON";
-        }
-        &:checked + label:after {
-            margin-left: 50px;
+
+            &:before {
+                left: 18px;
+                right: auto;
+                content: "ON";
+            }
+            &:after {
+                margin-left: 50px;
+            }
         }
         &:disabled + label {
             cursor: not-allowed;
